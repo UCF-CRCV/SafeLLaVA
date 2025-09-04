@@ -65,7 +65,7 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-              <span class="author-block">Equally contributing first authors</span>
+              <span class="author-block">*Equally contributing first authors</span> <br>
               <span class="author-block">CRCV, University of Central Florida</span>
           </div>
 
@@ -92,7 +92,7 @@
                   </a>
                 </span>
               <span class="link-block">
-                <a href="https://github.com/UCF-CRCV/SafeLLaVA" target="_blank"
+                <a href="https://github.com/Kimyounggun99/Safe-LLaVA.git" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -154,7 +154,7 @@
       <h2 class="title is-3">Abstract</h2>
       <div class="content has-text-justified">
         <p>
-            Multimodal Large Language Models (MLLMs) have demonstrated remarkable capabilities in vision-language tasks. However, these models often infer and reveal sensitive biometric attributes - such as race, gender, age, body weight, and eye color - even when such information is not explicitly requested. This raises critical concerns, particularly in real-world applications and socially-sensitive domains. Despite increasing awareness, no publicly available dataset or benchmark exists to comprehensively evaluate or mitigate biometric leakage in MLLMs. To address this gap, we introduce PRISM (Privacy-aware Evaluation of Responses in Sensitive Modalities), a new benchmark designed to assess MLLMs on two fronts: (1) refuse biometric-related queries and (2) implicit biometric leakage in general responses while maintaining semantic faithfulness. Further, we conduct a detailed audit of the widely used LLaVA datasets and uncover extensive biometric leakage across pretraining and instruction data. To address this, we present Safe-LLaVA dataset, the first privacy-preserving MLLM training dataset constructed by systematically removing explicit and implicit biometric information from LLaVA dataset. Our evaluations on PRISM reveal biometric leakages across MLLMs for different attributes, highlighting the detailed privacy-violations. We also fine-tune a model on  Safe-LLaVA dataset and show that it substantially reduces the biometric leakages. Together, Safe-LLaVA & PRISM set a new standard for privacy-aligned development and evaluation of MLLMs. The Safe-LLaVA dataset & PRISM benchmark are publicly available at õ https://huggingface.co/datasets/kyh9191/Safe-LLaVA, and the source code is available at § https://github.com/Kimyounggun99/SafeLLaVA.git.
+            Multimodal Large Language Models (MLLMs) have demonstrated remarkable capabilities in vision-language tasks. However, these models often infer and reveal sensitive biometric attributes - such as race, gender, age, body weight, and eye color - even when such information is not explicitly requested. This raises critical concerns, particularly in real-world applications and socially-sensitive domains. Despite increasing awareness, no publicly available dataset or benchmark exists to comprehensively evaluate or mitigate biometric leakage in MLLMs. To address this gap, we introduce PRISM (Privacy-aware Evaluation of Responses in Sensitive Modalities), a new benchmark designed to assess MLLMs on two fronts: (1) refuse biometric-related queries and (2) implicit biometric leakage in general responses while maintaining semantic faithfulness. Further, we conduct a detailed audit of the widely used LLaVA datasets and uncover extensive biometric leakage across pretraining and instruction data. To address this, we present Safe-LLaVA dataset, the first privacy-preserving MLLM training dataset constructed by systematically removing explicit and implicit biometric information from LLaVA dataset. Our evaluations on PRISM reveal biometric leakages across MLLMs for different attributes, highlighting the detailed privacy-violations. We also fine-tune a model on  Safe-LLaVA dataset and show that it substantially reduces the biometric leakages. Together, Safe-LLaVA & PRISM set a new standard for privacy-aligned development and evaluation of MLLMs. The Safe-LLaVA dataset & PRISM benchmark are publicly available at https://huggingface.co/datasets/kyh9191/Safe-LLaVA, and the source code is available at https://github.com/Kimyounggun99/SafeLLaVA.git.
             <br>
         </p>
       </div>
@@ -163,6 +163,31 @@
 
 </section>
 
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><i>SafeLLaVA</i> addresses a critical gap in biometric safety.</h2>
+        <div class="content has-text-justified">
+          <p>
+          <h5> <b> Main contributions: </b></h5>
+           <ul>
+             <li>We propose <b>PRISM</b>, a novel benchmark designed to evaluate MLLMs on their ability to (1) refuse biometric-related prompts and (2) suppress biometric leakage in open-ended responses while maintaining semantic fidelity.</li>
+             <li>We conduct extensive evaluations on the PRISM bench using multiple Judges, to highlight implicit and explicit leakage in various MLLMs.</li>
+             <li>We perform a comprehensive audit of the LLaVA pretraining and instruction-tuning datasets, revealing widespread biometric attribute leakage.</li>
+             <li>We introduce <b>Safe-LLaVA</b>, the first privacy-preserving MLLM training data, systematically cleaned to remove explicit and implicit biometric cues from captions, questions and answers. We release both Safe-LLaVA Pre-Training and Safe-LLaVA Instruction-tuning datasets.</li>
+             <li>We further demonstrate that fine-tuning on the Safe-LLaVA dataset, the model reduces both explicit and implicit biometric leakage while maintaining general performance.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
 
 
 
