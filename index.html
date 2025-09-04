@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<meta property='og:title' content='Safe-LLaVA: A Privacy-Preserving Vision-Language Dataset and Benchmark for Biometric Safety'/>
+<meta property='og:image' content=''/>
+<meta property='og:description' content=''/>
+<meta property='og:url' content='https://github.com/UCF-CRCV/SafeLLaVA'/>
+<meta property='og:image:width' content='1200' />
+<meta property='og:image:height' content='663' />
+<meta property="og:type" content='website'/>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Safe-LLaVA: A Privacy-Preserving Vision-Language Dataset and Benchmark for Biometric Safety">
+  <meta name="keywords" content="Privacy Preserving LMMs, Biometric Safety Benchmark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safe-LLaVA: A Privacy-Preserving Vision-Language Dataset and Benchmark for Biometric Safety</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./static/images/icon.png">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/tab_gallery.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="stylesheet" href="juxtapose/css/juxtapose.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/magnifier.js"></script>
+  <link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/image_card_fader.css">
+  <link rel="stylesheet" href="./static/css/image_card_slider.css">
+
+</head>
+
+<style>
+  @import url('https://fonts.cdnfonts.com/css/menlo');
+</style>
+
+
+<body>
+  <section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Safe-LLaVA: A Privacy-Preserving Vision-Language Dataset and Benchmark for Biometric Safety</h1>
+          <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="">Younggun Kim*</a>,</span>
+              <span class="author-block"><a href="https://swetha5.github.io/">Sirnam Swetha*</a>,</span>
+              <span class="author-block"><a href="">Fazil Kagdi</a>,</span>
+              <span class="author-block"><a href="https://scholar.google.com/citations?user=p8gsO3gAAAAJ&hl=en&oi=ao">Mubarak Shah</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+              <span class="author-block">Equally contributing first authors</span>
+              <span class="author-block">CRCV, University of Central Florida</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2509.00192" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+<!--            </span>-->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/kyh9191/Safe-LLaVA" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+              <span class="link-block">
+                <a href="https://github.com/UCF-CRCV/SafeLLaVA" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href="#bibtex"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-obp"></i>
+                  </span>
+                  <span>BibTex</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <p align="justify">
+             MLLMs often infer and reveal sensitive biometric attributes - such as race, gender, age, body weight, and eye color - even when such information is not explicitly requested. This raises critical concerns, particularly in real-world applications and socially-sensitive domains.
+             Despite increasing awareness, no publicly available dataset or benchmark exists to comprehensively evaluate or mitigate biometric leakage in MLLMs.
+             We introduce PRISM (Privacy-aware Evaluation of Responses in Sensitive Modalities), a new benchmark designed to assess MLLMs on two fronts: (1) refuse biometric-related queries and (2) implicit biometric leakage in general responses while maintaining semantic faithfulness.
+             Safe-LLaVA is the first privacy-preserving MLLM training dataset constructed by systematically removing explicit and implicit biometric information from LLaVA dataset.
+
+            <!-- <br> -->
+
+    <div class="column">
+        <div style="text-align:center;" >
+            <!-- <h4 class="subtitle has-text-centered"> -->
+            <img src="./static/images/teaser.png", width="100%">
+            <!-- </h4> -->
+            
+            <div class="content has-text-justified">
+                <p align="justify"> <b> <span>Figure</span></b>: MLLMs reveal biometric information - such as race, eye color, age or gender - when prompted with both biometric-related and open-ended questions.</p>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    </div>
+  </div>
+
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+                 <!-- Visual Effects. -->
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>
+            Multimodal Large Language Models (MLLMs) have demonstrated remarkable capabilities in vision-language tasks. However, these models often infer and reveal sensitive biometric attributes - such as race, gender, age, body weight, and eye color - even when such information is not explicitly requested. This raises critical concerns, particularly in real-world applications and socially-sensitive domains. Despite increasing awareness, no publicly available dataset or benchmark exists to comprehensively evaluate or mitigate biometric leakage in MLLMs. To address this gap, we introduce PRISM (Privacy-aware Evaluation of Responses in Sensitive Modalities), a new benchmark designed to assess MLLMs on two fronts: (1) refuse biometric-related queries and (2) implicit biometric leakage in general responses while maintaining semantic faithfulness. Further, we conduct a detailed audit of the widely used LLaVA datasets and uncover extensive biometric leakage across pretraining and instruction data. To address this, we present Safe-LLaVA dataset, the first privacy-preserving MLLM training dataset constructed by systematically removing explicit and implicit biometric information from LLaVA dataset. Our evaluations on PRISM reveal biometric leakages across MLLMs for different attributes, highlighting the detailed privacy-violations. We also fine-tune a model on  Safe-LLaVA dataset and show that it substantially reduces the biometric leakages. Together, Safe-LLaVA & PRISM set a new standard for privacy-aligned development and evaluation of MLLMs. The Safe-LLaVA dataset & PRISM benchmark are publicly available at õ https://huggingface.co/datasets/kyh9191/Safe-LLaVA, and the source code is available at § https://github.com/Kimyounggun99/SafeLLaVA.git.
+            <br>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title"><a id="bibtex">BibTeX</a></h2>
+    <pre><code>@article{safellava,
+title={Safe-LLaVA: A Privacy-Preserving Vision-Language Dataset and Benchmark for Biometric Safety},
+author={Younggun Kim and Sirnam Swetha and Fazil Kagdi and Mubarak Shah},
+journal={arXiv preprint arXiv:2509.00192},
+year={2025}
+}
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies source code</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="juxtapose/js/juxtapose.js"></script>
+
+<script>
+var slider;
+let origOptions = {
+    "makeResponsive": true,
+    "showLabels": true,
+    "mode": "horizontal",
+    "showCredits": true,
+    "animate": true,
+    "startingPosition": "50"
+};
+
+const juxtaposeSelector = "#juxtapose-embed";
+const transientSelector = "#juxtapose-hidden";
+
+  inputImage.src = "./static/images/".concat(name, "_input.jpg")
+  outputImage.src = "./static/images/".concat(name, "_output.jpg")
+
+  let images = [inputImage, outputImage];
+  let options = slider.options;
+  options.callback = function(obj) {
+      var newNode = document.getElementById(obj.selector.substring(1));
+      var oldNode = document.getElementById(juxtaposeSelector.substring(1));
+      console.log(obj.selector.substring(1));
+      console.log(newNode.children[0]);
+      oldNode.replaceChild(newNode.children[0], oldNode.children[0]);
+      //newNode.removeChild(newNode.children[0]);
+      
+  };
+  
+  slider = new juxtapose.JXSlider(transientSelector, images, options);
+};
+
+
+
+(function() {
+    slider = new juxtapose.JXSlider(
+        juxtaposeSelector, origImages, origOptions);
+    //document.getElementById("left-button").onclick = replaceLeft;
+    //document.getElementById("right-button").onclick = replaceRight;
+})();
+  // Get the image text
+  var imgText = document.getElementById("imgtext");
+  // Use the same src in the expanded image as the image being clicked on from the grid
+  // expandImg.src = imgs.src;
+  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+  imgText.innerHTML = name;
+  // Show the container element (hidden with CSS)
+  // expandImg.parentElement.style.display = "block";
+
+$(".flip-card").click(function() {
+            console.log("fading in")
+            div_back = $(this).children().children()[1]
+            div_front = $(this).children().children()[0]
+            // console.log($(this).children("div.flip-card-back"))
+            console.log(div_back)
+            $(div_front).addClass("out");
+            $(div_front).removeClass("in");
+
+            $(div_back).addClass("in");
+            $(div_back).removeClass("out");
+
+});
+
+$(".flip-card").mouseleave(function() {
+            console.log("fading in")
+            div_back = $(this).children().children()[1]
+            div_front = $(this).children().children()[0]
+            // console.log($(this).children("div.flip-card-back"))
+            console.log(div_back)
+            $(div_front).addClass("in");
+            $(div_front).removeClass("out");
+
+            $(div_back).addClass("out");
+            $(div_back).removeClass("in");
+
+});
+
+</script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>    
+
+</body>
+</html>
